@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-content',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent {
-
+  @Input() photoCover: string = ''
+  @Input() contentTitle: string = ''
+  @Input() contentDescription: string = ''
 }

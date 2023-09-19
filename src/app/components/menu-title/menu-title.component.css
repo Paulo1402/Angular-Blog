@@ -6,9 +6,11 @@
 .container__menu-title > h1 {
   margin: 10px 0;
   font-size: 135px;
+  text-align: center;
 
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 
