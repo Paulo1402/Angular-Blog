@@ -12,10 +12,12 @@
 
 .big-card__photo {
   width: 400px;
+  min-height: 200px;
 }
 
-img {
+.big-card__photo img {
   width: 100%;
+  height: 100%;
 }
 
 .big-card__title > h2 {
