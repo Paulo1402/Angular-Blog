@@ -1,8 +1,5 @@
 .container__big-card {
-  width: 600px;
-  height: 500px;
-  margin-left: 10px;
-  margin-right: 20px;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -11,8 +8,7 @@
 }
 
 .big-card__photo {
-  width: 600px;
-  min-height: 200px;
+  width: 100%;
 }
 
 .big-card__photo img {
@@ -22,8 +18,15 @@
 
 .big-card__title > h2 {
   margin-top: 15px;
+  margin-bottom: 5px;
 }
 
 .big-card__description > p {
   color: grey;
+}
+
+@media screen and (max-width: 1200px){
+  .container__big-card {
+    text-align: center;
+  }
 }

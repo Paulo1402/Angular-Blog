@@ -1,22 +1,24 @@
 .container__small-card {
   width: 100%;
   margin-bottom: 15px;
-}
 
-.container__small-card-content {
   display: flex;
+  justify-content: center;
 }
 
 .small-card__photo {
-  min-width: 200px;
-  max-width: 400px;
   margin-right: 20px;
+
+  flex: 1 1 200px;
+
+  min-width: 200px;
+  max-height: 100px;
 
 }
 
 .small-card__photo  img {
+  height: 100%;
   width: 100%;
-
 }
 
 .small-card__title {
@@ -25,6 +27,18 @@
   justify-content: center;
 }
 
-hr {
-  margin-top: 10px;
+@media screen and (max-width: 600px){
+  .container__small-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .small-card__photo {
+    max-height: 200px;
+
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+
 }
