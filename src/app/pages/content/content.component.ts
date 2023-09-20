@@ -32,8 +32,8 @@ export class ContentComponent implements OnInit {
       return
     }
 
-    this.contentTitle = result.title;
-    this.contentDescription = result.description;
-    this.photoCover = result.photo;
+    this.contentTitle = result.cardTitle;
+    this.contentDescription = result.cardDescription;
+    this.photoCover = result.photoCover;
   }
 }
