@@ -15,7 +15,7 @@
   min-height: 200px;
 }
 
-.big-card__photo > img {
+.big-card__photo img {
   width: 100%;
   height: 100%;
 }
