@@ -1,6 +1,5 @@
 .container__content {
-  width: 100%;
-  margin-top: 20px;
+  margin: 20px 100px;
 
   display: flex;
   flex-direction: column;
@@ -20,6 +19,8 @@
 .content__description {
   margin-top: 15px;
   color: grey;
+
+  text-align: center;
 }
 
 .container__content > a {

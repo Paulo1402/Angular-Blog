@@ -4,7 +4,7 @@
 
 
 .container__menu-title > h1 {
-  margin: 10px 0;
+  margin: 10px;
   font-size: 135px;
   text-align: center;
 
@@ -19,3 +19,8 @@
   margin-bottom: 5px;
 }
 
+@media screen and (max-width: 600px){
+  .container__menu-title > h1{
+    font-size: 100px;
+  }
+}
