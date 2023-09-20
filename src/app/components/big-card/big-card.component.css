@@ -30,7 +30,7 @@
   color: grey;
 }
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1200px) {
   .container__big-card {
     text-align: center;
   }
