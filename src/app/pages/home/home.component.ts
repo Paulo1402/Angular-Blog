@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { dataFake } from '../../data/dataFake';
+import { DataFakeService, Card } from 'src/app/services/data-fake.service';
 
-interface ICard {
-  id: number;
-  cardTitle: string;
-  cardDescription: string;
-  photoCover: string;
-}
 
 @Component({
   selector: 'app-home',
@@ -14,11 +8,25 @@ interface ICard {
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  smallCards: ICard[] = [];
-  bigCards: ICard[] = [];
+  bigCards: Card[] = [];
+  smallCards: Card[] = [];
+
+  constructor(private dataFake: DataFakeService) {}
 
   ngOnInit(): void {
-    this.bigCards = dataFake.slice(0, 1);
-    this.smallCards = dataFake.slice(1);
+    const cards = this.dataFake.getCards()
+
+    const bigCards = cards.slice(0, 1);
+    const bigCardsWithDescriptionExcerpt = bigCards.map(this.summarizeDescription)
+
+    this.bigCards = bigCardsWithDescriptionExcerpt;
+    this.smallCards = cards.slice(1);
+  }
+
+  summarizeDescription(card: Card): Card {
+    const description = card.cardDescription
+    const descriptionExcerpt = description.substring(0, 300) + '...'
+
+    return Object.assign({}, card, { cardDescription: descriptionExcerpt})
   }
 }
