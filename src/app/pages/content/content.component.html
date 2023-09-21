@@ -8,7 +8,7 @@
       <h1>{{ contentTitle }}</h1>
     </div>
     <div class="content__description">
-      <p>{{ contentDescription }}</p>
+      <p *ngFor="let paragraph of contentParagraphs">{{ paragraph }}</p>
     </div>
   </div>
 </div>

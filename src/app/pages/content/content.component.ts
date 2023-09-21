@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { dataFake } from '../../data/dataFake';
+import { DataFakeService } from 'src/app/services/data-fake.service';
 
 @Component({
   selector: 'app-content',
@@ -11,29 +11,33 @@ import { dataFake } from '../../data/dataFake';
 export class ContentComponent implements OnInit {
   photoCover: string = '';
   contentTitle: string = '';
-  contentDescription: string = '';
+  contentParagraphs: string[] = [];
+
   private id: number | null = null;
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private route: ActivatedRoute, private router: Router, private dataFaker: DataFakeService) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(
       (value) => (this.id = Number(value.get('id')))
     );
 
-    this.setValuesToComponent(this.id);
+    this.setCardContent(this.id);
   }
 
-  setValuesToComponent(id: number | null) {
-    const result = dataFake.find((article) => article.id === id);
+  setCardContent(id: number | null) {
+    const card = this.dataFaker.getCard(id)
 
-    if (!result) {
+    if (!card) {
       this.router.navigate(['error', '404']);
       return
     }
 
-    this.contentTitle = result.cardTitle;
-    this.contentDescription = result.cardDescription;
-    this.photoCover = result.photoCover;
+    const contentDescription = card.cardDescription;
+    const contentParagraphs = contentDescription.split('\n')
+
+    this.contentTitle = card.cardTitle;
+    this.contentParagraphs = contentParagraphs
+    this.photoCover = card.photoCover;
   }
 }
