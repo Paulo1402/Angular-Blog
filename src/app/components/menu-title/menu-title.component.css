@@ -2,7 +2,6 @@
   color: white;
 }
 
-
 .container__menu-title > h1 {
   margin: 10px;
   font-size: 135px;
@@ -13,14 +12,19 @@
   align-items: center;
 }
 
-
 .container__menu-title > hr {
   margin-top: 20px;
   margin-bottom: 5px;
 }
 
-@media screen and (max-width: 600px){
-  .container__menu-title > h1{
+@media screen and (max-width: 700px) {
+  .container__menu-title > h1 {
     font-size: 100px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container__menu-title > h1 {
+    font-size: 50px;
   }
 }
